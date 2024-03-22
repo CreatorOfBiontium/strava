@@ -101,38 +101,40 @@ Vše potřebné si najdete, nebo mi napište.
     - Když vám nefunguje setup, nebo program nejde spustit.
     - Podrobněji v data/info.md.
     1. Setup
-        - Když se vám kód při prvním spuštění nezapne to setup módu udělejte následující kroky:
+        - Když se vám kód při prvním spuštění nezapne do setup módu udělejte následující kroky:
             1. Otevřete soubor data/config.json
             2. V souboru data/config.json najďete sekci "data"
             3. V ní přepněte setup z *false* na *true*
-            4. Uložte osubor a spusťte program znovu
+            4. Uložte soubor a spusťte program znovu
         - Je možné, že nastala chyba při setupu, např. že se vám heslo nezašifruje, pak postupujte podle těchto kroků:
             1. Zkontrolujte debug.txt
             2. Podle infomací přejděte do data/info.md
             3. V sekci debugging by měla být odpověď
-            4. Jestli nemáte řešení tam mi napiště
+            4. Jestli nemáte řešení tam mi napište
         
     2. Problémy se spouštěním
         - Je možné, že program nelze sputit, tak zkontrolujte:
             1. Soubor data/debug.txt - v něm uvidíte důvod
             2. Jestli máte stažené všechny knihovny
-                - Podívejte se do souboru gui.py a zkontorujte, zda-li jsou všehcny kihovny přístupné.
+                - Podívejte se do souboru gui.py a zkontorujte, zda-li jsou všehcny knihovny přístupné.
+                - Příkazy níže napište do příkazového řádku vašeho počítače.
                 - Jestli vám nějaká chybí, použijte příkaz `pip install <název knihovny>`
                 - Aktualizujte knihovny pomocí příkazu `pip install --upgrade <název knihovny>`
                 - Zkontrolujte danou knihovnu pomocí příkazu `pip show <název knihovny>`
+                - Více info o pip najdete na stránkách [PyPi](https://pypi.org)
             3. Že je Python správně nainstalovan a případně další faktory, které mohou způsobovat chybu
 
 2. Přepínání "scén"
     - Scény považuji možnosti jako je Nastavení, Chat GPT, Rozšířené Možnosti a přehled.
     - Je možné, že mezi scény nelze přepínat, s tím zatím nic neuděláte, to musím já opravit.
-    - Na Linuxech to fungovat nebude, když si najdete jak to opravit, můžete, ale časem to opravím oficiálně.
+    - Na Linuxech to fungovat nemusí, když si najdete jak to opravit, můžete, ale časem to opravím oficiálně.
 
 3. Další chyby
     - Jedna důležitá rada: vše najdete v data/info.md.
     - Jesli ne, tak mi napište, já s něčím přijdu.
 
 4. Program bez GUI
-    - Zda-li vám nefunguje kód zodpovědný za objednávání mimo GUI, můžete se to pokusit vyřešit nastavováním různých věci, kód bych nechal tak jak je, protože mně to funguje.
+    - Zda-li vám nefunguje kód zodpovědný za objednávání mimo GUI, můžete se to pokusit vyřešit nastavováním různých věcí, kód bych nechal tak jak je, protože mně to funguje.
     - V data/info.md je více info kdyby bylo potřeba.
     - Je možné, že nastane chyba, která shodí celý program, která může nastat kdykoli a kdekoli, ale když běží více vláken najednou, tak chyba v jednom z nich neukončí celý program, ostatní vlákan tomu brání. Více info v [sekci pro vývojáře](#pro-vývojáře).
 
@@ -140,36 +142,36 @@ Vše potřebné si najdete, nebo mi napište.
 ### Jak s programem nezacházet
 1. Vypínání a restartování:
     - Program má pro vypínání a restartování několik způsobů.
-    - Je potřeba aby se uložily inforame, které má program jen aktuálně a mohly by být potřeba při příštím zpuštění.
+    - Je potřeba aby se uložily informace, které má program jen aktuálně a mohly by být potřeba při příštím zpuštění.
     1. Vypínání
         - Pro vypnutí udělejte následující kroky:
             1. Zvřete GUI okno
             2. Vepiště do konzole exit (nebo odejít)
             3. Stiskněte enter a chvíli počkejte
-        - Jakýkoli jiný způsob by mohl stratit nějaké důležité informace.
-        - Ačkoli by to až tak moc nevadilo, je to spíš funkce do budoucna.
+        - Jakýkoli jiný způsob by mohl ztratit nějaké důležité informace.
+        - Ačkoli by to až tak moc nevadilo, je to spíše funkce do budoucna.
     2. Restartování
         - Program někdy potřebuje restartovat, tak je tu možnost jak to udělat rychleji.
-        - Je zde pár způsobů:, prvním z nich je:
+        - Je zde pár způsobů, prvním z nich je:
             1. Zavřete GUI okno
             2. Vepište do konzole "res", nebo "restart"
             3. Potvrďte zmáčknutím entru
         - Další způsoby zde stále existují, ale není potřeba je znát.
-    3. Další způsoby
+    3. Další možnosti
         - Dřive byla možnost vstoupt do tzv. "cmd módu", jenže tato možnost je od verze 0.87 odebrána.
         - Stále je možné z kódu vyvolat funkci pro ukončení programu.
 
 2. Správa vláken
-    - Do tohoto se nechci moc motat, vše najdete v sekci [jak s programem nezacházet](#jak-s-programem-nezacházet), nebo v souboru data/info.md.
+    - Do tohoto se nechci moc motat, vše info o vláknech najdete v sekci [pro vývojáře](#pro-vývojáře), nebo v souboru data/info.md.
     - Pokud nemusíte, tak nechte program si určit jaká vlákna potřebuje použít sám.
-    - Pokud se ale rozhodnete zkusit jak vlákna fungují, nedoporučujeme vlákno ukončit uprostřed nějakého většího procesu - mohlo by to vést ke chybám
-    - Dávejte si pozor abyste nestartovali 5 vlákno pokud nemusíte, můžou se pak otevřít 2 okna, chci to takhle nechat, protože občas se to hodí, ale někdy to může způsobit problémy.
+    - Pokud se ale rozhodnete zkusit jak vlákna fungují, nedoporučujeme vlákno ukončit uprostřed nějakého většího procesu - mohlo by to vést ke chybám.
+    - Dávejte si pozor, abyste nespustili 5. vlákno pokud nemusíte, můžou se pak otevřít 2 okna, chci to takhle nechat, protože občas se to hodí, ale někdy to může způsobit problémy.
 
 
 ### Další inforamce
 1. Všeobecné poznámky:
     - Není doporučené kód ukončovat jakýmkoli jiným způsobem než zavřením GUI okna a vepsáním "exit" do konzole. Pro více info se podívejte do sekce [jak s programem nezacházet](#jak-s-programem-nezacházet).
     - Verze: cislo; A -> Alfa; a -> verze a; + -> nedokončená verze, rozšíření napsané verze, ale nedokončené; může být i třeba: 1.0Ba+
-    - V souboru data/settings.json je sekce pro odesílání mailu když nastane daná situace, ale potřebuje to hodně práce s knihovnami pro maily a zároveň to má vysoké požadavky na mail, takže to snad ani přidávat nebudu
-    - Updatování
-    - currentData.txt
+    - V souboru data/settings.json je sekce pro odesílání mailu když nastane daná situace, ale potřebuje to hodně práce s knihovnami pro maily a zároveň to má vysoké požadavky na mail, takže to snad ani přidávat nebudu.
+    - Momentálně si program musíte aktualizovat sami z githubu, ale časem bych chtěl přidat klienta pro aktualizace
+    - V souboru data/currentData.txt jsou uloženy inforamce jako: *kolik zbývá do další objednávky*, *poslední objednávka*, atd. - i když tam něco upravíte, program si určité věci přepíše zpět.
