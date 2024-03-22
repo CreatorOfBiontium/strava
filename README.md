@@ -32,7 +32,7 @@ Vše potřebné si najdete nebo mi napište.
     
     2. Setup
         - Jakmile jste spustili kód, měl by se vám zobrazit setup.
-        - Zdali se vám program otevře do okna pro objednávání, znamená to že nejspíš byl setup vypnutý, pro více info přejděte na [sekci o debugování](#Debuging).
+        - Zdali se vám program otevře do okna pro objednávání, znamená to že nejspíš byl setup vypnutý, pro více info přejděte na [sekci o debugování](#Debugging).
         - Zde je potřeba abyste zadali vaše údaje na stravu a pokračovali dále.
         - Jako další krok je potřeba abyste si nastavili Chat GPT, jenže s tímto jsem měl menší problémy a Ještě to nefunguje, takže můžete Nastavování tady přeskočit.
         - Po dokončení setupu by se měl kód otevřít na uživatelském rozhraní programu.
@@ -76,13 +76,61 @@ Vše potřebné si najdete nebo mi napište.
 
         - Je možné, že když cokoliv nebude fungovat, že se více dozvíte v info.md, nebo v souboru debug.txt, případně mi napište.
 
+    4. Objednávání jídel
+        - Kód se každou stanovenou dobu přihlásí k vašemu školnímu účtu na stravě a pokusí se objednat stanovený oběd.
+        - Všechny možné nastavení nasdete v sekci Nastavení v programu, nebo ve souboru data/settings.json.
+        - Chtěl jsem to ještě udělat, že to zůstane třeba den přihlášené, že se to nebude muset popkaždé přihlašovat, ale nevím jestli by to fungovalo.
+        - Objednávnání trvá jen chvilku, počkejte pár sekund a mělo by to být.
+        - Pozor: kód nespracovává chyby při objednávání moc dobře, takže když víte, že se něco pokazilo, tak zkontrolujte debug.txt
+
 
 ### Pro vývojáře
- - Info o vláknech atd.
+- Více sem přijde brzo
+1. Vlákna
+    - Více o vláknech ve souboru data/info.md
 
 
-### Debuging
-- setup, přepínbání scén, další chyby, info v souoru curr, bez GUI
+### Debugging
+- Info k debugování.
+- Tento seznam nemusí obsahovat vše, kdyžtak mi napištre a já se to pokusím vyřešit
+1. Debugování při startu:
+    - Když vám nefunguje setup, nebo program nejde spustit
+    - Podrobněji v data/info.md
+    1. Setup
+        - Když se vám kód při prvním spuštění nezapne to setup módu udělejte následující kroky:
+            1. Otevřete soubor data/config.json
+            2. V souboru data/config.json najďete sekci "data"
+            3. V ní přepněte setup z *false* na *true*
+            4. Uložte osubor a spusťte program znovu
+        - Je možné, že nastala chyba při setupu, např. že se vám heslo nezašifruje, pak postupujte podle těchto kroků:
+            1. Zkontrolujte debug.txt
+            2. Podle infomací přejděte do data/info.md
+            3. V sekci debugging by měla být odpověď
+            4. Jestli nemáte řešení tam mi napiště
+        
+    2. Problémy se spouštěním
+        - Je možné, že program nelze sputit, tak zkontrolujte:
+            1. Soubor data/debug.txt - v něm uvidíte důvod
+            2. Jestli máte stažené všechny knihovny
+                - Podívejte se do souboru gui.py a zkontorujte, zda-li jsou všehcny kihovny přístupné.
+                - Jestli vám nějaká chybí, použijte příkaz `pip install <název knihovny>`
+                - Aktualizujte knihovny pomocí příkazu `pip install --upgrade <název knihovny>`
+                - Zkontrolujte danou knihovnu pomocí příkazu `pip show <název knihovny>`
+            3. Že je Python správně nainstalovan a případně další faktory, které mohou způsobovat chybu
+
+2. Přepínání "scén"
+    - Scény považuji možnosti jako je Nastavení, Chat GPT, Rozšířené Možnosti a přehled.
+    - Je možné, že mezi scény nelze přepínat, s tím zatím nic neuděláte, to musím já opravit.
+    - Na Linuxech to fungovat nebude, když si najdete jak to opravit, můžete, ale časem to opravím oficiálně
+
+3. Další chyby
+    - Jedna důležitá rada: vše najdete v data/info.md.
+    - Jesli ne, tak mi napište, já s něčím přijdu.
+
+4. Program bez GUI
+    - Zda-li vám nefunguje kód zodpovědný za objednávání mimo GUI, můžete se to pokusit vyřešit nastavováním různých věci, kód bych nechal tak jak je, protože mně to funguje.
+    - V data/info.md je více info kdyby bylo potřeba.
+    - Je možné, že nastane chyba, která shodí celý program, která může nastat kdykoli a kdekoli, ale když běží více vláken najednou, tak chyba v jednom z nich neukončí celý program, ostatní vlákan tomu brání. Více info v [sekci pro vývojáře](#pro-vývojáře).
 
 
 ### Jak s programem nezacházet
@@ -117,4 +165,7 @@ Vše potřebné si najdete nebo mi napište.
 ### Další inforamce
 1. Všeobecné poznámky:
     - Není doporučené kód ukončovat jakýmkoli jiným způsobem než zavřením GUI okna a vepsáním "exit" do konzole. Pro více info se podívejte do sekce [jak s programem nezacházet](#jak-s-programem-nezacházet).
-    - Jak fungují verze
+    - Verze: cislo; A -> Alfa; a -> verze a; + -> nedokončená verze, rozšíření napsané verze, ale nedokončené; může být i třeba: 1.0Ba+
+    - V souboru data/settings.json je sekce pro odesílání mailu když nastane daná situace, ale potřebuje to hodně práce s knihovnami pro maily a zároveň to má vysoké požadavky na mail, takže to snad ani přidávat nebudu
+    - Updatování
+    - currentData.txt
