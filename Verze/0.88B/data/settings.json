@@ -6,10 +6,10 @@
         "ifNoGPT": 2,
         "checkOnSave": true,
         "useGPT": true,
-        "uzivatel": "vastakt",
-        "pwd": "gAAAAABl_aT414ewELqijtwGE2_xPKPPYuNsfi9tU2X-gOOUaa_dbeEu0wLo7WJmYw8Nt01DQBMDhCxvlJrXJlg6v59sHnFHvQ==",
-        "encryptPwd": true,
-        "key": "tuO0l_-aPvhKF0iZwsRFb1G1V4mLKy9Hdp8pbXZQwBQ=",
+        "uzivatel": "",
+        "pwd": "",
+        "encryptPwd": false,
+        "key": "",
         "cislo_jidelny": "0509"
     },
     "GPTSetings": {
