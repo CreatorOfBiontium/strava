@@ -1,6 +1,6 @@
 problems: 
-lastOrder: Kuskus se zeleninou a krabím masem, červená řepa (obloha)
-codeRunning: ano
-threads: 3 1 4 2
-allOrders: 6
-nextOrderUpdate: 47
+lastOrder: 
+codeRunning: 
+threads: 
+allOrders: 
+nextOrderUpdate: 

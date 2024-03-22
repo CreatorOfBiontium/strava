@@ -2,10 +2,10 @@ Ahoj, potřebuji tvoji pomoc. Mám kód v pythonu, který vždy bude obědnávat
 Prosím odpovídej ve formátu 1 nebo 2. Děkuji. Brzo obdržíž tvé první rozhodnutí. Dávej si prosím pozor pořádně na to co mám rád a co ne.
 
 mám rád:
-- Svíčková
+- Jídlo, které mám rád
 
 nemám rád:
-- S vájíčkama
+- Jídlo, které nemám rád
 
 Pokud:
 oblíbené-oblíbené: vybírej 1
