@@ -88,6 +88,9 @@ Vše potřebné si najdete, nebo mi napište.
         - Objednávnání trvá jen chvilku, počkejte pár sekund a mělo by to být.
         - Pozor: kód nespracovává chyby při objednávání moc dobře, takže když víte, že se něco pokazilo, tak zkontrolujte debug.txt
 
+2. Fungování podrobně
+    - Více bude v [sekci pro vývojáře](#pro-vývojáře).
+
 
 ### Pro vývojáře
 - Více sem přijde brzo
