@@ -50,10 +50,10 @@ Vše potřebné si najdete, nebo mi napište.
                 Jakmile kliknete na text s časem do příští objednávky, tak by se vám měl čas resetovat a nový pokus o obědnání by měl hned proběhnout.
                 Více info v data/info.md.
             2. Nastavení <br>
-                Je to nastavení, co byste čekali. Nastavte zde vše co potřebujete, upravte jméno, heslo*, vše potřebné.
-                Po stistkutí uložit by vám mělo vyskočit oznámení, zdali chcete změny uplatnit už teď. Program si ze souboru na začátku načte pouze potřebné info pro start a zbytek si bere přímo ze souborů, které si otevře, takže to minimálně ovlivní fungování a běh programu.
+                Je to nastavení, co byste čekali. Nastavte zde vše co potřebujete, upravte jméno, heslo**, vše potřebné.
+                Po stistkutí uložit by vám mělo vyskočit oznámení, zdali chcete změny uplatnit už teď. Program si ze souboru na začátku načte pouze potřebné info pro start a zbytek si bere přímo ze souborů, které si znovu otevře, takže to minimálně ovlivní fungování a běh programu.
                 Více věcí ohledně nastavování najdete v data/info.md.
-                * Při ukládání hesla máte na výbeř možnost šifrování hesla, slouží to pouze, aby při např ukázání souboru nebylo hned možné vidět heslo, protože klíč k dešifrování se nechází ve stejném souboru (případně bych chtěl do budoucna opravit)
+                ** Při ukládání hesla máte na výbeř možnost šifrování hesla, slouží to pouze, aby při např ukázání souboru nebylo hned možné vidět heslo, protože klíč k dešifrování se nechází ve stejném souboru (případně bych chtěl do budoucna opravit)
             3. Chat GPT <br>
                 Chat GPT momentálně nefunguje a není nutné zadávat cokoli s ním spojeného. Do budoucna bych to chtěl přepracovat upravit aby to fungovalo.
                 Zatím si můžete vyplnit jaká jídla máte a nemáte rádi, to se nestratí.
