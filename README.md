@@ -154,7 +154,7 @@ Vše potřebné si najdete, nebo mi napište.
         - Program někdy potřebuje restartovat, tak je tu možnost jak to udělat rychleji.
         - Je zde pár způsobů, prvním z nich je:
             1. Zavřete GUI okno
-            2. Vepište do konzole "res", nebo "restart"
+            2. Vepište do konzole "res", nebo "obnovit"
             3. Potvrďte zmáčknutím entru
         - Další způsoby zde stále existují, ale není potřeba je znát.
     3. Další možnosti
