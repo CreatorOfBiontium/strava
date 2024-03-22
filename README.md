@@ -83,24 +83,23 @@ Vše potřebné si najdete, nebo mi napište.
 
     4. Objednávání jídel
         - Kód se každou stanovenou dobu přihlásí k vašemu školnímu účtu na stravě a pokusí se objednat stanovený oběd.
-        - Všechny možné nastavení nasdete v sekci Nastavení v programu, nebo ve souboru data/settings.json.
-        - Chtěl jsem to ještě udělat, že to zůstane třeba den přihlášené, že se to nebude muset popkaždé přihlašovat, ale nevím jestli by to fungovalo.
+        - Všechny možné nastavení najdete v sekci Nastavení v programu, nebo ve souboru data/settings.json.
+        - Chtěl jsem to ještě udělat, že to zůstane třeba den přihlášené, že se to nebude muset pokaždé přihlašovat, ale nevím jestli by to fungovalo.
         - Objednávnání trvá jen chvilku, počkejte pár sekund a mělo by to být.
         - Pozor: kód nespracovává chyby při objednávání moc dobře, takže když víte, že se něco pokazilo, tak zkontrolujte debug.txt
 
 
 ### Pro vývojáře
 - Více sem přijde brzo
-1. Vlákna
-    - Více o vláknech ve souboru data/info.md
+- Čekejte: Info o vláknech, Popsaný běh programu, další info
 
 
 ### Debugging
 - Info k debugování.
 - Tento seznam nemusí obsahovat vše, kdyžtak mi napište a já se to pokusím vyřešit
 1. Debugování při startu:
-    - Když vám nefunguje setup, nebo program nejde spustit
-    - Podrobněji v data/info.md
+    - Když vám nefunguje setup, nebo program nejde spustit.
+    - Podrobněji v data/info.md.
     1. Setup
         - Když se vám kód při prvním spuštění nezapne to setup módu udělejte následující kroky:
             1. Otevřete soubor data/config.json
@@ -126,7 +125,7 @@ Vše potřebné si najdete, nebo mi napište.
 2. Přepínání "scén"
     - Scény považuji možnosti jako je Nastavení, Chat GPT, Rozšířené Možnosti a přehled.
     - Je možné, že mezi scény nelze přepínat, s tím zatím nic neuděláte, to musím já opravit.
-    - Na Linuxech to fungovat nebude, když si najdete jak to opravit, můžete, ale časem to opravím oficiálně
+    - Na Linuxech to fungovat nebude, když si najdete jak to opravit, můžete, ale časem to opravím oficiálně.
 
 3. Další chyby
     - Jedna důležitá rada: vše najdete v data/info.md.
