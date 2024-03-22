@@ -55,15 +55,15 @@ Vše potřebné si najdete, nebo mi napište.
                 Více věcí ohledně nastavování najdete v data/info.md.
                 ** Při ukládání hesla máte na výbeř možnost šifrování hesla, slouží to pouze, aby při např ukázání souboru nebylo hned možné vidět heslo, protože klíč k dešifrování se nechází ve stejném souboru (případně bych chtěl do budoucna opravit)
             3. Chat GPT <br>
-                Chat GPT momentálně nefunguje a není nutné zadávat cokoli s ním spojeného. Do budoucna bych to chtěl přepracovat upravit aby to fungovalo.
+                Chat GPT momentálně nefunguje a není nutné zadávat cokoli s ním spojeného. Do budoucna bych to chtěl přepracovat, upravit aby to fungovalo.
                 Zatím si můžete vyplnit jaká jídla máte a nemáte rádi, to se nestratí.
-                Zde je zbytečné cokoli říkat, až s updatem, který opraví Chat GPT - více v data/info.md
+                Zde je zbytečné cokoli říkat, až s updatem, který opraví Chat GPT - více v data/info.md.
             4. Rozšířené možnosti <br>
                 Naleznete zde pár věcí jak se dostat do programu, ne všechny ale fungují, jsou pouze experimentání a můžou i rozbít program.
                 Radši bych nechal program ať si funguje jak je.
                 Pro více info o rozšířených možnostech se dočete v [sekci pro vývojáře](#pro-vývojáře).
         - Program má i sekci bez GUI, tedy jen s konzolí.
-        - Když okno zavřete, měla by se vám ona zmíněná sekce otevřít, navýběr teď máte ze dvou možností:
+        - Když okno zavřete, měla by se vám ona zmíněná sekce otevřít - na výběr teď máte ze tří možností:
             1. Zmáčknete enter
                 - Po zmáčknutí entru by se vám mělo okno zpět otevřít.
                 - Program objednává a funguje na pozadí i bez okna.
@@ -72,6 +72,11 @@ Vše potřebné si najdete, nebo mi napište.
                 - Tento příkaz restartuje kód.
                 - Res oficiálně ukončí daný proces který probíhá a uloží potřebné věci - není doporučené kód ukončovat jakýmkoli jiným způsobem - a znovu kód spustí.
                 - Pro více info se podívejte do sekce [jak s programem nezacházet](#jak-s-programem-nezacházet).
+            3. Napíšete "exit" a zmáčknete enter
+                - Tento příkaz Ukončí běh kódu.
+                - Exit oficiálně ukončí daný Všechny potřebné procesy tak jak má a uloží potřebné inmformace.
+                - Pro více info se podívejte do sekce [jak s programem nezacházet](#jak-s-programem-nezacházet).
+
 
 
         - Je možné, že když cokoliv nebude fungovat, že se více dozvíte v info.md, nebo v souboru debug.txt, případně mi napište.
