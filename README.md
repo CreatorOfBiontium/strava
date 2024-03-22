@@ -22,7 +22,7 @@ Program potřebuje k běhu splňovat následující podmínky:
 
 ### Jak kód funguje?
 Vše se dozvíte ve souboru data/info.md, ale zde budou základní věci alespoň.
-Vše potřebné si najdete nebo mi napište.
+Vše potřebné si najdete, nebo mi napište.
 
 1. Obecně fungování
     1. Fungování
@@ -45,20 +45,20 @@ Vše potřebné si najdete nebo mi napište.
             - Rozšířené možnosti
         - Přepínat mezi nimi můžete pomocí stisknutí tlčítka pro danou kategorii *Momentálně nefunguje pro Linuxová zařízení.
         - Dané kategorie si více rozebereme níže:
-            1. Přehled
+            1. Přehled <br>
                 Přehled slouží k zobrazení aktivity u objednávání. Vidíte zde běh programu, celkem objednáno obědů a poslední objednávku.
                 Jakmile kliknete na text s časem do příští objednávky, tak by se vám měl čas resetovat a nový pokus o obědnání by měl hned proběhnout.
                 Více info v data/info.md.
-            2. Nastavení
+            2. Nastavení <br>
                 Je to nastavení, co byste čekali. Nastavte zde vše co potřebujete, upravte jméno, heslo*, vše potřebné.
                 Po stistkutí uložit by vám mělo vyskočit oznámení, zdali chcete změny uplatnit už teď. Program si ze souboru na začátku načte pouze potřebné info pro start a zbytek si bere přímo ze souborů, které si otevře, takže to minimálně ovlivní fungování a běh programu.
                 Více věcí ohledně nastavování najdete v data/info.md.
                 * Při ukládání hesla máte na výbeř možnost šifrování hesla, slouží to pouze, aby při např ukázání souboru nebylo hned možné vidět heslo, protože klíč k dešifrování se nechází ve stejném souboru (případně bych chtěl do budoucna opravit)
-            3. Chat GPT
+            3. Chat GPT <br>
                 Chat GPT momentálně nefunguje a není nutné zadávat cokoli s ním spojeného. Do budoucna bych to chtěl přepracovat upravit aby to fungovalo.
                 Zatím si můžete vyplnit jaká jídla máte a nemáte rádi, to se nestratí.
                 Zde je zbytečné cokoli říkat, až s updatem, který opraví Chat GPT - více v data/info.md
-            4. Rozšířené možnosti
+            4. Rozšířené možnosti <br>
                 Naleznete zde pár věcí jak se dostat do programu, ne všechny ale fungují, jsou pouze experimentání a můžou i rozbít program.
                 Radši bych nechal program ať si funguje jak je.
                 Pro více info o rozšířených možnostech se dočete v [sekci pro vývojáře](#pro-vývojáře).
@@ -92,7 +92,7 @@ Vše potřebné si najdete nebo mi napište.
 
 ### Debugging
 - Info k debugování.
-- Tento seznam nemusí obsahovat vše, kdyžtak mi napištre a já se to pokusím vyřešit
+- Tento seznam nemusí obsahovat vše, kdyžtak mi napište a já se to pokusím vyřešit
 1. Debugování při startu:
     - Když vám nefunguje setup, nebo program nejde spustit
     - Podrobněji v data/info.md
