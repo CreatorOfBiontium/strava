@@ -175,3 +175,4 @@ Vše potřebné si najdete, nebo mi napište.
     - V souboru data/settings.json je sekce pro odesílání mailu když nastane daná situace, ale potřebuje to hodně práce s knihovnami pro maily a zároveň to má vysoké požadavky na mail, takže to snad ani přidávat nebudu.
     - Momentálně si program musíte aktualizovat sami z githubu, ale časem bych chtěl přidat klienta pro aktualizace
     - V souboru data/currentData.txt jsou uloženy inforamce jako: *kolik zbývá do další objednávky*, *poslední objednávka*, atd. - i když tam něco upravíte, program si určité věci přepíše zpět.
+    - Pozor: v souoru data/config.json nastavujte showErrorOnDebug na true pouze když víte, že potřebujete upozornit na zápis do debug.txt - jindy to zastaví běz vlákna 3 a můžou nastat potíže
