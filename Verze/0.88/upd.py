@@ -49,7 +49,8 @@ try:
             configFile.truncate()
         
         print("Startuji gui.py...")
-        os.system("python gui.py")
+        exit()
+        
     else:
         print("[i] Instaluji aktualizace...")
         print("\t> kopíruji:   gui.py   res.py   upd.py")
@@ -111,4 +112,4 @@ print("[!] Nastala chyba. Program nelze aktualizovat.")
 print("[i] Odstraňuji složku update")
 os.system("rmdir /s update" if os.name == "nt" else "rm -r update")
 input("Zavřete entrem ")
-os.system("python gui.py")
+exit()
