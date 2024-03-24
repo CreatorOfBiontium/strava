@@ -56,7 +56,6 @@ try:
             
         souborNastaveni = slovnik["all"]["settingsFile"]
         
-        
         print(F"\t> aktualizuji:   data/config.json   {souborNastaveni}")
         
         with open(f"update/verze/{radky[-1]}/data/config.json", "r", encoding="utf-8") as configFileTc:
@@ -72,8 +71,8 @@ try:
             configFile.write(jsonDone)
             configFile.truncate()
             
-            
-        with open(f"update/verze/{radky[-1]}/data/{souborNastaveni}.json", "r", encoding="utf-8") as configFileTc:
+
+        with open(f"update/verze/{radky[-1]}/{souborNastaveni}", "r", encoding="utf-8") as configFileTc:
             ncf2 = json.load(configFileTc)
         
         with open(f"data/{souborNastaveni}.json", "r+", encoding="utf-8") as settingsFile:
