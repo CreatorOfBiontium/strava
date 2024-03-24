@@ -77,8 +77,6 @@ Vše potřebné si najdete, nebo mi napište.
                 - Exit oficiálně ukončí daný Všechny potřebné procesy tak jak má a uloží potřebné inmformace.
                 - Pro více info se podívejte do sekce [jak s programem nezacházet](#jak-s-programem-nezacházet).
 
-
-
         - Je možné, že když cokoliv nebude fungovat, že se více dozvíte v info.md, nebo v souboru debug.txt, případně mi napište.
 
     4. Objednávání jídel
@@ -89,12 +87,22 @@ Vše potřebné si najdete, nebo mi napište.
         - Pozor: kód nespracovává chyby při objednávání moc dobře, takže když víte, že se něco pokazilo, tak zkontrolujte debug.txt
 
 2. Fungování podrobně
-    - Více bude v [sekci pro vývojáře](#pro-vývojáře).
+    1. Objednávání jídel
+        Jídla kód objednává pomocí několika základních kroků:
+        1. Získání dostupných objedů
+        2. Nalezení posledního z nich
+        3. Vybrání možnosti 1/2
+        4. Provedení změn
+        5. Uložení změn
+
+        Každý krok si při příští aktualizaci podrobně probereme, teď je to všechno.
+
+    - Více o fungování kódu a instrukce najdete v [sekci pro vývojáře](#pro-vývojáře).
 
 
 ### Pro vývojáře
 - Více sem přijde brzo
-- Čekejte: Info o vláknech, Popsaný běh programu, další info
+- Čekejte: Info o vláknech, Popsaný běh programu, další info, instrukce k úpravám
 
 
 ### Debugging

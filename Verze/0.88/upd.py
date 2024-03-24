@@ -102,7 +102,7 @@ try:
         
         print("[i] Aktualizace byla úspěšná!")
         os.system("cls" if os.name == "nt" else "clear")
-        os.system("python gui.py")
+        exit()
 
 except Exception as excp:
     print("\033[91m" + f"Chyba: {excp}" + "\033[0m")
