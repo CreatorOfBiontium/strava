@@ -1,0 +1,6 @@
+problems: 
+lastOrder: 
+codeRunning: ano
+threads: 3
+allOrders: 
+nextOrderUpdate: 0

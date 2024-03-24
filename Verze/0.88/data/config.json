@@ -1,0 +1,28 @@
+{
+    "all": {
+        "threads": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "debug": true,
+        "bg": "white",
+        "showErrors": true,
+        "showErrorOnDebug": false,
+        "ShutOnClose": false,
+        "settingsFile": "data/settings.json",
+        "currentDataFile": "data/currentData.txt",
+        "allowRM": true
+    },
+    "data": {
+        "allOrders": 5,
+        "lastOrder": "rusk\u00fd bor\u0161\u010d",
+        "setup": false,
+        "shutDownProperly": false,
+        "showMode4Alert": false,
+        "runCheck": false,
+        "settingsFile": "data/settings.json"
+    }
+}
