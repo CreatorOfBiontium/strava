@@ -87,12 +87,10 @@ try:
         
         os.system("rmdir /s update" if os.name == "nt" else "rm -r update")
         
-        # Zkopírování souborů gui.py, res.py a upd.py
-        # Aktualizace settings.json a config.json
-        # Smazání složky update
-        # Otevření gui.py
+        print("[i] Aktualizace byla úspěšná!")
+        os.system("cls" if os.name == "nt" else "clear")
+        os.system("python gui.py")
 
-    
 except Exception as excp:
     print("\033[91m" + f"Chyba: {excp}" + "\033[0m")
     

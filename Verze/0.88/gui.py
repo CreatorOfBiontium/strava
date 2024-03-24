@@ -1714,7 +1714,6 @@ def vlakno1():
             # Odeslání HTTP zase požadavku
             odpoved = requests.post('https://app.strava.cz/api/pridejJidloS5', data=json_data, headers={'Content-Type': 'text/plain'})
             
-            print(odpoved.text)
     
             data = {'cislo': cislo, "sid":sid, "url":url, "xml":None, "pocet":1, "ignoreCert":ignoreCert, "lang":"CZ"}
     
@@ -1723,7 +1722,6 @@ def vlakno1():
             # Odeslání HTTP požadavku
             odpoved = requests.post('https://app.strava.cz/api/saveOrders', data=json_data, headers={'Content-Type': 'text/plain'})
             
-            print(odpoved.text)
     
             for i in range(orderUpdateInterval):
                 if not exit_event.is_set():
