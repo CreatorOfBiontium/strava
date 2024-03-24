@@ -67,6 +67,7 @@ try:
         ShutOnClose = config["all"]["ShutOnClose"]
         bgc = config["all"]["bg"]
         threadsjson = config["all"]["threads"]
+        checkForUpdates = config["all"]["checkForUpdates"]
         allowRM = config["all"]["allowRM"]
         showErrorOnDebug = config["all"]["showErrorOnDebug"]
         
@@ -80,6 +81,7 @@ try:
         showMode4Alert = config["data"]["showMode4Alert"]
         runCheck = config["data"]["runCheck"]
         showMode4Alert = config["data"]["showMode4Alert"]
+        newVerAv = config["data"]["newVerAv"]
         
 except Exception as excp:
         with open("data/debug.txt", "a") as debugFile:
@@ -130,6 +132,21 @@ def exitPgTop(exitt):
     
 #Start (zapsání do currentdataFile a další)
 #List: problems-lastPRproblems:, runCheck
+
+if checkForUpdates and newVerAv != False:
+    os.system("python upd.py")
+    
+    
+with open("data/config.json", "r+", encoding="utf-8") as configFile:
+    cf = json.load(configFile)
+    
+    cf["data"]["newVerAv"] = True
+    
+    jsonDone = json.dumps(cf, indent=4)
+    configFile.seek(0)
+    configFile.write(jsonDone)
+    configFile.truncate()
+
 
 with open("data/verze.txt", "r+", encoding="utf-8") as verze:
     verzeP = verze.read()

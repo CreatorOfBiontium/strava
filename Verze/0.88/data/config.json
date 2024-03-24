@@ -23,6 +23,7 @@
         "shutDownProperly": true,
         "showMode4Alert": true,
         "runCheck": false,
-        "settingsFile": "data/settings.json"
+        "settingsFile": "data/settings.json",
+        "newVerAv": true
     }
 }

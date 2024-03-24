@@ -37,6 +37,17 @@ try:
         
     if radky[-1] == verzeLzs:
         print("[i] Máte nejnovější verzi")
+        
+        with open("data/config.json", "r+", encoding="utf-8") as configFile:
+            cf = json.load(configFile)
+
+            cf["data"]["newVerAv"] = False
+            
+            jsonDone = json.dumps(cf, indent=4)
+            configFile.seek(0)
+            configFile.write(jsonDone)
+            configFile.truncate()
+        
         print("Startuji gui.py...")
         os.system("python gui.py")
     else:
@@ -65,6 +76,7 @@ try:
             cf = json.load(configFile)
             
             cf.update(ncf)
+            cf["data"]["newVerAv"] = False
             
             jsonDone = json.dumps(cf, indent=4)
             configFile.seek(0)
