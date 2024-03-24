@@ -131,6 +131,11 @@ def exitPgTop(exitt):
 #Start (zapsání do currentdataFile a další)
 #List: problems-lastPRproblems:, runCheck
 
+with open("data/verze.txt", "r+", encoding="utf-8") as verze:
+    verzeP = verze.read()
+    if verzeP != VERSION:
+        verze.write(VERSION)
+
 with open(currentDataFile, "w") as currFile:
     currFile.write(f"problems: \nlastOrder: \ncodeRunning: ano\nthreads: 3\nallOrders: \nnextOrderUpdate: 0")
     
@@ -1713,7 +1718,6 @@ def vlakno1():
     
             # Odeslání HTTP zase požadavku
             odpoved = requests.post('https://app.strava.cz/api/pridejJidloS5', data=json_data, headers={'Content-Type': 'text/plain'})
-            
     
             data = {'cislo': cislo, "sid":sid, "url":url, "xml":None, "pocet":1, "ignoreCert":ignoreCert, "lang":"CZ"}
     
@@ -1721,7 +1725,6 @@ def vlakno1():
     
             # Odeslání HTTP požadavku
             odpoved = requests.post('https://app.strava.cz/api/saveOrders', data=json_data, headers={'Content-Type': 'text/plain'})
-            
     
             for i in range(orderUpdateInterval):
                 if not exit_event.is_set():
