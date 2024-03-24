@@ -60,7 +60,7 @@ try:
         print(F"\t> aktualizuji:   data/config.json   {souborNastaveni}")
         
         with open(f"update/verze/{radky[-1]}/data/config.json", "r", encoding="utf-8") as configFileTc:
-            ncf = json.load(configFile)
+            ncf = json.load(configFileTc)
         
         with open("data/config.json", "r+", encoding="utf-8") as configFile:
             cf = json.load(configFile)
@@ -74,7 +74,7 @@ try:
             
             
         with open(f"update/verze/{radky[-1]}/data/{souborNastaveni}.json", "r", encoding="utf-8") as configFileTc:
-            ncf2 = json.load(configFile)
+            ncf2 = json.load(configFileTc)
         
         with open(f"data/{souborNastaveni}.json", "r+", encoding="utf-8") as settingsFile:
             cf2 = json.load(settingsFile)
@@ -99,5 +99,7 @@ except Exception as excp:
     
 # Na konec řekne že nastala chyba, protože program neodešel kdy měl
 print("[!] Nastala chyba. Program nelze aktualizovat.")
+print("[i] Odstraňuji složku update")
+os.system("rmdir /s update" if os.name == "nt" else "rm -r update")
 input("Zavřete entrem ")
 os.system("python gui.py")
