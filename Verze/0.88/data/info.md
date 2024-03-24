@@ -62,7 +62,7 @@ Info.md
     - V debug.txt najdete log chyb na místech v kódu kde jsou chyby pravděpodobné
     - Pokud chcete vypnout zápis do debugu, přepněte debug v config sekci all na false
     - V některých veřejných verzích je debug základně vypnut
-    - Error "Error5: Error occurred while loading P�ehled. Exception: name 'restartV1' is not defined" můžete ignorovat, pak to opravím
+    - Error "Error5: Error occurred while loading P ehled. Exception: name 'restartV1' is not defined" můžete ignorovat, pak to opravím
 
 
 4. Trénování Chat GPT:
@@ -128,8 +128,7 @@ Info.md
 
 12. Verze:
     - Informace o verzích do datumu níže
-    - Poslední update tohoto odstavce: 15:11  02.03.2024
-    - Poslední update tohoto odstavce: 19:20 22.03.2024
+    - Poslední update tohoto odstavce: 16:00 24.03.2024
     - Dostupné verze:
         0.88 - veřejná verze; 22.03.2024; optimalizováno pro python 3.11.3; vytvořeno ve VS Code
             - Updaty: Oprava objednávání, oprava res.py, optimalizace

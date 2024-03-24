@@ -1,18 +1,2 @@
 Debug.txt
 =========
-
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 16:11:21]
-Error4: Error occurred while starting thread5. Exception: cannot join current thread [22.03.2024 18:10:44]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:26:45]
-Error4: Error occurred while starting thread5. Exception: cannot join current thread [22.03.2024 18:28:35]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:28:40]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:30:49]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:34:01]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:37:55]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:38:34]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:39:22]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:39:55]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [22.03.2024 18:46:36]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [24.03.2024 14:54:27]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [24.03.2024 14:54:53]
-Error5: Error occurred while loading Pøehled. Exception: name 'restartV1' is not defined [24.03.2024 14:55:27]

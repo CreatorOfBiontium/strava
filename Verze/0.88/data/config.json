@@ -7,21 +7,21 @@
             4,
             5
         ],
-        "debug": true,
+        "debug": false,
         "bg": "white",
         "showErrors": true,
         "showErrorOnDebug": false,
         "ShutOnClose": false,
         "settingsFile": "data/settings.json",
         "currentDataFile": "data/currentData.txt",
-        "allowRM": true
+        "allowRM": false
     },
     "data": {
         "allOrders": 5,
-        "lastOrder": "rusk\u00fd bor\u0161\u010d",
-        "setup": false,
-        "shutDownProperly": false,
-        "showMode4Alert": false,
+        "lastOrder": "",
+        "setup": true,
+        "shutDownProperly": true,
+        "showMode4Alert": true,
         "runCheck": false,
         "settingsFile": "data/settings.json"
     }
