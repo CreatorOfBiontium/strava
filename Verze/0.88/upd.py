@@ -75,7 +75,7 @@ try:
         with open(f"update/verze/{radky[-1]}/{souborNastaveni}", "r", encoding="utf-8") as configFileTc:
             ncf2 = json.load(configFileTc)
         
-        with open(f"data/{souborNastaveni}.json", "r+", encoding="utf-8") as settingsFile:
+        with open(f"{souborNastaveni}", "r+", encoding="utf-8") as settingsFile:
             cf2 = json.load(settingsFile)
             
             cf2.update(ncf2)
