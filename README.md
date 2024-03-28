@@ -104,7 +104,7 @@ Vše potřebné si najdete, nebo mi napište.
 Zde bude něco málo pro toho, kdo si chce kód, upravit, opravit, aktualizovat, nebo cokoli s ním udělat.
 Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře pro vás
 
-1. Obecné informace
+1. Obecné informace<br>
     Něco málo co je potřeba, nebudu popisovat celý kód, to až případně dole.
     Připravuji funkce jako pluginy a několik dalších, něco málo o nich zde najdete.
 
@@ -127,7 +127,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         Původně mělo sloužit k nastavení proměn když kód běží - to se hodí pro debugování, ale ještě jsem ji nepřidal.
         POzději ji přídám, jestli si ji chcete vytvořit sami, klidně můžete, byl bych rád kdybyste mi poslali kód a já bych ji dal do příští verze
 
-2. Vlákna
+2. Vlákna<br>
     1vlákno: spustí funkci na obědnávání, poté časovač <- přičaosvači to zapíše za jak dlouho novy update jidel
     2vlákno: Když klikneš na čaš spustí to vlákno1 znovu
     3vlákno: gui < hlavní chod aplikace, není vlákno
@@ -137,10 +137,10 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
     Každé vlákno má zvláštní přístup, musíte se podívat na požadavky pro ukončení vlákna, např. nastavení exit_event.set().
     Případně sem přijde víc brzo.
 
-3. Běh podrobně
+3. Běh podrobně<br>
     Víc přijde brzo
 
-4. Instrukce
+4. Instrukce<br>
     Nějaké info pro implementaci různých prvků
     1. Pluginy
         Do budoucna bych chtěl přidat možnost instralování pluginů.
@@ -155,7 +155,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         V kódě bude pluginu několik dostupných míst, které budou používatelné a se kterýma bude kód moct manipulovat.
         Více až s updatem
 
-5. Objednávání
+5. Objednávání<br>
     Níže je podrobně popsán proces objednávání.
 
     **Stavba požadavků**
