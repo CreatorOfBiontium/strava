@@ -158,7 +158,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
 5. Objednávání<br>
     Níže je podrobně popsán proces objednávání.
 
-    **Stavba požadavků**
+    **Stavba požadavků**<br>
     Každý požadavek má zvláštní přístup, zde je popsán:
     1. Vytvoříme data požadavku<br>
         Data jsou ve slovníku, např.:
@@ -182,7 +182,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         *odpoved* je odpověď z požadavku a pomocí "json" knihovny převedeme stringová data, která jsme přijali do Python slovníku.
         S tím pak dále pracujeme
 
-    **Objednávání pořadě**
+    **Objednávání pořadě**<br>
     1. Přihlášení<br>
         Pomocí řádku `requests.post('https://app.strava.cz/api/login', data=json_data, headers={'Content-Type': 'text/plain'})` odešleme požadavek na přihlášení.
         Jesli jsou údaje špatné (status kód != 200) napíšeme upozornění. (Od verze  0.9)
