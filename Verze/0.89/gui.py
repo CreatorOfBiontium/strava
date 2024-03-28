@@ -42,6 +42,7 @@ after_loop1: bool = True
 after_loop2: bool = True
 waited: int = 0
 freeze: bool = False
+runCheck = False
 
 #temp
 restart_gui = False
