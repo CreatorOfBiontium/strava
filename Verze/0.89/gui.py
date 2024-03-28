@@ -27,7 +27,7 @@ except:
 #TODO: dodělat runCheck
 
 #cislo; A -> Alfa; a -> verze a; + -> nedokončená verze, rozšíření napsané verze, ale nedokončené; může být i třeba: 1.0Ba+
-VERSION = "0.88"
+VERSION = "0.89"
 
 #souobry potřebné (pak načtené z configu)
 settingsFile = None
@@ -137,15 +137,13 @@ def checkLP():
     with open(currentDataFile, "r", encoding="utf-8") as currDataFile:
         radky = currDataFile.readlines()
         
-    if len(radky[0].replace("problems: lastPRproblems:", "")) > 0:
+    if len(radky[0].replace("problems: lastPRproblems:", "")) > 2:
        print(f"CheckLP():  V souboru {currentDataFile} byly nalezeny nějaké problémy z minulého běhu, je možné, že kód nemusí fungovat tak, jak má")
        ok = False
-    
-    # Opravit
-    
-    # if radky[1].replace("lastOrder: lastPRlastOrder: ", "") != lastOrder:
-    #     print(f"CheckLP(): Objed zaznamenán v {currentDataFile} se neshoduje s posledním objeden v config.json")
-    #     ok = False
+
+    if radky[1].replace("lastOrder: lastPRlastOrder: ", "") != lastOrder:
+        print(f"CheckLP(): Objed zaznamenán v {currentDataFile} se neshoduje s posledním objeden v config.json")
+        ok = False
     
     if ok == False:
         return "notOK"
@@ -195,11 +193,9 @@ def strartCheck():
     
     nslozka = os.path.basename(os.path.dirname(os.path.realpath(__file__)))
     
-    if nslozka != "strava":
-        os.chdir("..")
-        os.rename(nslozka, f"strava")
-        time.sleep(1)
-        os.chdir("strava")
+    if nslozka == VERSION:
+        print("Doporučujeme, aby název složky se nerovnal jakékoli verzi, protože program se sám aktualizuje")
+        time.sleep(2)
 
     if runCheck:
         problemsRegistred = []
@@ -213,7 +209,8 @@ def strartCheck():
         if len(problemsRegistred) > 0:
             print(f"Upozornění\n========\n\nrunCheck našel nějaké problémy při kontrole kódu.\n\n{problemsRegistred}")
 
-            freeze = True
+            if "Uživatelské údaje nejsou správné" in problems:
+                freeze = True
             print("Zavírám... (5)")
             time.sleep(5)
             
