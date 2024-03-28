@@ -131,7 +131,7 @@ def exitPgTop(exitt):
         exit()
 
 def checkLP():
-    ok: bool
+    ok = True
     
     with open(currentDataFile, "r", encoding="utf-8") as currDataFile:
         radky = currDataFile.readlines()
@@ -140,9 +140,11 @@ def checkLP():
        print(f"CheckLP():  V souboru {currentDataFile} byly nalezeny nějaké problémy z minulého běhu, je možné, že kód nemusí fungovat tak, jak má")
        ok = False
     
-    if radky[1].replace("lastOrder: lastPRlastOrder: ", "") != lastOrder:
-        print(f"CheckLP(): Objed zaznamenán v {currentDataFile} se neshoduje s posledním objeden v config.json")
-        ok = False
+    # Opravit
+    
+    # if radky[1].replace("lastOrder: lastPRlastOrder: ", "") != lastOrder:
+    #     print(f"CheckLP(): Objed zaznamenán v {currentDataFile} se neshoduje s posledním objeden v config.json")
+    #     ok = False
     
     if ok == False:
         return "notOK"
