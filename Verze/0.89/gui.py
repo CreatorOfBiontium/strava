@@ -129,9 +129,6 @@ def exitPgTop(exitt):
     
     if exitt:
         exit()
-    
-#Start (zapsání do currentdataFile a další)
-#List: problems-lastPRproblems:, ...
 
 def checkLP():
     ok: bool
@@ -193,7 +190,7 @@ def checkUserInfo(jmeno, heslo):
 def strartCheck():
     global freeze
     
-    nslozka = os.path.basename(os.path.dirname(os.getcwd()))
+    nslozka = os.path.basename(os.path.dirname(os.path.realpath(__file__)))
     
     if nslozka != "strava":
         os.chdir("..")

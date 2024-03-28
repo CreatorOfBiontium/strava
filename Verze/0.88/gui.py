@@ -24,7 +24,7 @@ except:
     with open("data/debug.txt", "a", encoding="utf-8") as debugFile:
         debugFile.write(f"\nError6: Could not import requests [{datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S')}]")
 
-#TODO: runCheck a kontrola při uložení nastavení
+#TODO: dodělat runCheck
 
 #cislo; A -> Alfa; a -> verze a; + -> nedokončená verze, rozšíření napsané verze, ale nedokončené; může být i třeba: 1.0Ba+
 VERSION = "0.88"
@@ -32,15 +32,16 @@ VERSION = "0.88"
 #souobry potřebné (pak načtené z configu)
 settingsFile = None
 currentDataFile = None
-config = {}
-vlakno1bezi = False
-vlakno2bezi = False
-vlakno3bezi = True
-vlakno4bezi = False
-vlakno5bezi = False
-after_loop1 = True
-after_loop2 = True
-waited = 0
+config: dict = {}
+vlakno1bezi: bool = False
+vlakno2bezi: bool = False
+vlakno3bezi: bool = True
+vlakno4bezi: bool = False
+vlakno5bezi: bool = False
+after_loop1: bool = True
+after_loop2: bool = True
+waited: int = 0
+freeze: bool = False
 
 #temp
 restart_gui = False
@@ -81,7 +82,6 @@ try:
         showMode4Alert = config["data"]["showMode4Alert"]
         runCheck = config["data"]["runCheck"]
         showMode4Alert = config["data"]["showMode4Alert"]
-        newVerAv = config["data"]["newVerAv"]
         
 except Exception as excp:
         with open("data/debug.txt", "a") as debugFile:
@@ -129,13 +129,95 @@ def exitPgTop(exitt):
     
     if exitt:
         exit()
-    
-#Start (zapsání do currentdataFile a další)
-#List: problems-lastPRproblems:, runCheck
 
-if checkForUpdates and newVerAv != False:
-    os.system("python upd.py")
+def checkLP():
+    ok: bool
     
+    with open(currentDataFile, "r", encoding="utf-8") as currDataFile:
+        radky = currDataFile.readlines()
+        
+    if len(radky[0].replace("problems: lastPRproblems:", "")) > 0:
+       print(f"CheckLP():  V souboru {currentDataFile} byly nalezeny nějaké problémy z minulého běhu, je možné, že kód nemusí fungovat tak, jak má")
+       ok = False
+    
+    if radky[1].replace("lastOrder: lastPRlastOrder: ", "") != lastOrder:
+        print(f"CheckLP(): Objed zaznamenán v {currentDataFile} se neshoduje s posledním objeden v config.json")
+        ok = False
+    
+    if ok == False:
+        return "notOK"
+    else:
+        return "OK"
+
+def checkUserInfo(jmeno, heslo):
+    if jmeno == None or heslo == None:
+        with open(settingsFile, "r", encoding="utf-8") as settFile:
+            nastaveni = json.load(settFile)
+            cislo_jidelny = nastaveni["mainSettings"]["cislo_jidelny"]
+            jmeno = nastaveni["mainSettings"]["uzivatel"]
+            if nastaveni["mainSettings"]["encryptPwd"] == True:
+                pwd = nastaveni["mainSettings"]["pwd"]
+                key = nastaveni["mainSettings"]["key"]
+                pwd = Fernet(key.encode()).decrypt(pwd.encode()).decode()
+                heslo = pwd
+            else:
+                heslo = nastaveni["mainSettings"]["pwd"]
+            
+        if jmeno == "" and heslo == "":
+            return "OK"
+    else:
+        if jmeno == "" and heslo == "":
+            return "OK"
+
+        with open(settingsFile, "r", encoding="utf-8") as settFile:
+            nastaveni = json.load(settFile)
+            cislo_jidelny = nastaveni["mainSettings"]["cislo_jidelny"]
+        
+    data = {"cislo": cislo_jidelny, "jmeno":jmeno, "heslo":heslo, "zustatPrihlasen":False, "lang":"CZ"}
+
+    json_data = json.dumps(data)
+    
+    # Odeslání HTTP požadavku
+    odpoved = requests.post('https://app.strava.cz/api/login', data=json_data, headers={'Content-Type': 'text/plain'})
+
+    if odpoved.status_code == 200:
+        return "OK"
+    else:
+        return "notOK"
+    
+    return "wut"
+
+def strartCheck():
+    global freeze
+    
+    nslozka = os.path.basename(os.path.dirname(os.path.realpath(__file__)))
+    
+    if nslozka != "strava":
+        os.chdir("..")
+        os.rename(nslozka, f"strava")
+        time.sleep(1)
+        os.chdir("strava")
+
+    if runCheck:
+        problemsRegistred = []
+        
+        if checkUserInfo(None, None) != "OK":
+            problemsRegistred.append("Uživatelské údaje nejsou správné")
+            
+        if checkLP() != "OK":
+            problemsRegistred.append(f"Nastal problém se souborem {currentDataFile}")
+            
+        if len(problemsRegistred) > 0:
+            print(f"Upozornění\n========\n\nrunCheck našel nějaké problémy při kontrole kódu.\n\n{problemsRegistred}")
+
+            freeze = True
+            print("Zavírám... (5)")
+            time.sleep(5)
+            
+strartCheck()
+
+if checkForUpdates:
+    os.system("python upd.py")
     
 with open("data/config.json", "r+", encoding="utf-8") as configFile:
     cf = json.load(configFile)
@@ -211,7 +293,6 @@ if setup == True:
                 back2_button.pack()
                 
                 def on_change():
-                    print("a", api_entry.get(), cid_entry.get())
                     if api_entry.get() == "" and cid_entry.get() == "":
                         ct4_button.config(text="Přeskočit")
                         ct4_button.config(command=lambda: cont4(True))
@@ -393,12 +474,6 @@ def writeToDebug(data):
             except:
                 pass
 
-def runCheckFunc():
-    print("runCheck ještě není podporováno, ale brzo bude")
-
-if runCheck:
-    runCheckFunc()
-
 def changeToPrehled():
     global label, after_loop1, casDoNextOrder, restartV1, stav, casDoNextUpdate, beziciVlakna, problemy, celkemObjednavek, posledniObjednavka
 
@@ -457,7 +532,6 @@ def changeToPrehled():
                         minuty = zbyle_sekundy // 60
                         sekundy = zbyle_sekundy % 60
 
-
                         casDoNextUpdate = f"{hodiny}:{minuty:02}:{sekundy:02}"
 
 
@@ -469,7 +543,11 @@ def changeToPrehled():
                 label.configure(background=bgc)
                 label.pack()
                 
-
+                label00 = tk.Label(root, text="Objednávání pozastaveno", font=Font(family="Arial", size=9), anchor="center", justify="center")
+                label00.configure(background=bgc)
+                if freeze:
+                    label00.pack()
+                
                 label0 = tk.Label(root, text="", font=custom_font)
                 label0.configure(background=bgc)
                 label0.pack()
@@ -856,7 +934,7 @@ def changeToNastaveni():
         canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
 
     def save_settings():
-        global checkOnSave, infoUpdateInterval, updateOrderForIdk, settingsFile, useGPT, ifNoGPT, aktualizacePrvku
+        global checkOnSave, infoUpdateInterval, updateOrderForIdk, settingsFile, useGPT, ifNoGPT, aktualizacePrvku, vlakno1bezi, freeze, exit_event
         
         odpovedd = messagebox.askyesno("Uložení nastavení", "Chcete uložené změny uprlatnit už teď? (Může přijít ke problémům v kódu - změny se uloží do konfiguračního souboru nastavení, ale při přijmutí se změny nastaví v běžícím kódu, při chybě můžete restartovat potřebná vlákna)")
         
@@ -894,10 +972,21 @@ def changeToNastaveni():
             settings_file_value = settings_file_entry.get()
 
             if checkOnSave:
-                print("Kontrola nastavení ještě není podporována, ale brzo bude!")
-                # Tady to zkontroluje: přihlašování údaje ok/ne, klíč a kódování a jestli soubor nastavení je ok.
-                chybaset = "Žádná chyba!"
-                canContinue = True
+                if checkUserInfo(name_value, password_value) != "OK":
+                    chybaset = "Přihlašovací údaje k vašemu účtu nejsou správné"
+                    canContinue = False
+                    freeze = True
+                    exit_event.set()
+                else:
+                    chybaset = "Žádná chyba!"
+                    canContinue = True
+                    freeze = False
+                    if vlakno1bezi == False:
+                        exit_event.clear()
+                        vlakno1bezi = True
+                        thread1 = threading.Thread(target=vlakno1)
+                        thread1.start()
+                        
                 
             if canContinue:
                 if encrypt_value1 != True:
@@ -953,11 +1042,10 @@ def changeToNastaveni():
                     ifNoGPT = int(lunch_option_value)
                     
             else:
-                messagebox.showwarning("Pozor!", f"V nastavení došlo k chybě {chybaset}")
+                messagebox.showwarning("Pozor!", f"V nastavení došlo k chybě: {chybaset}")
                 
         except Exception as excp:
             writeToDebug(f"Error8/1: Error while saving settings: {excp}")
-        
         
     settingsFile1 = settingsFile
         
@@ -965,7 +1053,6 @@ def changeToNastaveni():
         global loginEveryDays, orderUpdateInterval, useGPT, uzivatel, ifNoGPT, pwd, infoUpdateInterval, settingsFile1, encryptPwd, checkOnSave
         
         # Načte do proměn hodnoty z souboru nastavení
-        
         try:
             with open(settingsFile, "r", encoding="utf-8") as settingsFileIDK:
                 settinsPref = json.load(settingsFileIDK)
@@ -993,9 +1080,7 @@ def changeToNastaveni():
         except Exception as excp:
             writeToDebug(f"Error7/1: Error occurred while loading settings from {settingsFile} while startSettings. Exception: {excp}")
                 
-
     def cancel():
-        
         startSettings()
         
         login_days_entry.delete(0, tk.END)
@@ -1494,8 +1579,6 @@ def exitPg2(exitt):
         if thread5:
             thread5.join()
         exit()
-
-
         
 def end_all_threads(exittt):
     global vlakno1bezi, vlakno2bezi, vlakno3bezi, vlakno4bezi, vlakno5bezi, after_loop1, after_loop2
@@ -1639,8 +1722,6 @@ def vlakno2():
 def vlakno1():
     global vlakno1bezi, thread2, waited, posledniObjednavka, celkemObjednavek, lastOrder, allOrders
     
-    vlakno1bezi = True
-    
     try:
         with open(settingsFile, "r", encoding="utf-8") as soubor:
             orderUpdateInterval = int(json.load(soubor)["mainSettings"]["orderUpdateInterval"]) * 1000
@@ -1650,9 +1731,8 @@ def vlakno1():
             problems.append("e3/3")
 
     def insidewrapper():
-        global waited, posledniObjednavka, celkemObjednavek, lastOrder, allOrders
-    
-        print("Upozornění: kód je stále ve vývoji a proto se zatím přihlašuje při každém obědnání")
+        global waited, posledniObjednavka, celkemObjednavek, lastOrder, allOrders, vlakno1bezi
+
         waited = 0
     
         with open(settingsFile, "r", encoding="utf-8") as settFile:
@@ -1667,14 +1747,15 @@ def vlakno1():
             else:
                 heslo = nastaveni["mainSettings"]["pwd"]
         
-        if jmeno != "" and heslo != "":
+        if jmeno != "" and heslo != "" and freeze == False:
+            vlakno1bezi = True
+            
             data = {"cislo": cislo_jidelny, "jmeno":jmeno, "heslo":heslo, "zustatPrihlasen":False, "lang":"CZ"}
-    
+
             json_data = json.dumps(data)
     
             # Odeslání HTTP požadavku
             odpoved = requests.post('https://app.strava.cz/api/login', data=json_data, headers={'Content-Type': 'text/plain'})
-    
     
             odpoved_slovnik = json.loads(odpoved.text)
     
@@ -1750,12 +1831,15 @@ def vlakno1():
                     
             if not exit_event.is_set():      
                 insidewrapper()
+                
 
-    
-    insidewrapper()
-    
+    insidewrapper()    
 
     vlakno1bezi = False
+    try:
+        threads.remove("1")
+    except:
+        pass
 
     
 def closeGUI():
@@ -1875,7 +1959,6 @@ def startGUI():
         if "w2/5" not in problems:
             problems.append("w2/5")
 
-    
     # Vytvoření okna
     try:
         if 3 in threadsjson:
