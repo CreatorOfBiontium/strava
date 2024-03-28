@@ -62,7 +62,7 @@ Info.md
     - V debug.txt najdete log chyb na místech v kódu kde jsou chyby pravděpodobné
     - Pokud chcete vypnout zápis do debugu, přepněte debug v config sekci all na false
     - V některých veřejných verzích je debug základně vypnut
-    - Error "Error5: Error occurred while loading P ehled. Exception: name 'restartV1' is not defined" můžete ignorovat, pak to opravím
+    - Error "Error5: Error occurred while loading P�ehled. Exception: name 'restartV1' is not defined" můžete ignorovat, pak to opravím
 
 
 4. Trénování Chat GPT:
@@ -120,12 +120,13 @@ Info.md
 
 11. Podporované funkce:
     - Vlákna: 1, 2, 3, 4, 5
-    - Cmd
     - Přehled, Nastavení, Nastavení GPT, Rozšířené možnosti > každý má své funce, jako např. v Nastavení můžete změny uplatnit už hned, ale nechce se mi to vypisovat, jen RM
     - RM: Spravovat vlákna, soubory config.json a ..., CMD Mód
+    - Setup, check
 
-    - Možná jsem něco vynechal, neva - setup a check nejsou podporovány
+    - Možná jsem něco vynechal, neva
 
+    
 12. Verze:
     - Informace o verzích do datumu níže
     - Poslední update tohoto odstavce: 16:00 24.03.2024

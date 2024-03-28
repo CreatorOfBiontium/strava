@@ -190,7 +190,7 @@ def checkUserInfo(jmeno, heslo):
     return "wut"
 
 def strartCheck():
-    global freeze
+    global freeze, runCheck
     
     nslozka = os.path.basename(os.path.dirname(os.path.realpath(__file__)))
     

@@ -23,8 +23,16 @@ try:
     os.chdir(os.path.dirname(os.path.realpath(__file__)))
     
     print("[i] Vytváření složky 'update'")
-    os.makedirs("update")
     
+    try:
+        os.makedirs("update")
+    except:
+        try:
+            os.system("rmdir /s update" if os.name == "nt" else "rm -r update")
+            os.makedirs("update")
+        except:
+            pass
+        
     print("[i] stahuji GitHub repozitář")
     repo = git.Repo.clone_from(url, "update")
     
@@ -38,15 +46,6 @@ try:
     if radky[-1] == verzeLzs:
         print("[i] Máte nejnovější verzi")
         
-        with open("data/config.json", "r+", encoding="utf-8") as configFile:
-            cf = json.load(configFile)
-
-            cf["data"]["newVerAv"] = False
-            
-            jsonDone = json.dumps(cf, indent=4)
-            configFile.seek(0)
-            configFile.write(jsonDone)
-            configFile.truncate()
         
         print("Startuji gui.py...")
         exit()
@@ -77,7 +76,6 @@ try:
             cf = json.load(configFile)
             
             cf.update(ncf)
-            cf["data"]["newVerAv"] = False
             
             jsonDone = json.dumps(cf, indent=4)
             configFile.seek(0)

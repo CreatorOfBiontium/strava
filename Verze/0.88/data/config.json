@@ -14,15 +14,16 @@
         "ShutOnClose": false,
         "settingsFile": "data/settings.json",
         "currentDataFile": "data/currentData.txt",
+        "checkForUpdates": true,
         "allowRM": false
     },
     "data": {
-        "allOrders": 5,
+        "allOrders": 0,
         "lastOrder": "",
-        "setup": true,
+        "setup": false,
         "shutDownProperly": true,
         "showMode4Alert": true,
-        "runCheck": false,
+        "runCheck": true,
         "settingsFile": "data/settings.json",
         "newVerAv": true
     }
