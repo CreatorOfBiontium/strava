@@ -108,14 +108,14 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
     Něco málo co je potřeba, nebudu popisovat celý kód, to až případně dole.
     Připravuji funkce jako pluginy a několik dalších, něco málo o nich zde najdete.
 
-    1. Error restartV1 is not defined
+    1. Error restartV1 is not defined<br>
         Error byl způsobován  použitím `restartV1` na bindování před definováním funkce.
         V novějších verzích jsem ten řádek odstranil.
         Byl to:
         `label.bind("<Button-1>", restartV1)`
         Na starších verzích jej také odstraňte jestli se chcete erroru zbavit.
 
-    2. Enkryptování hesla
+    2. Enkryptování hesla<br>
         Heslo enkryptuji pomocí knihovny 'crypthography'.
         Při ukládání do nastavení zkontroluje, jestli je *encrypt_value1* nastavena na *True*.
         Jestli ano, tak pak to zašifruje pomocí:
@@ -123,9 +123,9 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         -> Vygeneruje to klíč, enkryptuje heslo, zapíše enkryptované heslo a klíč.
         Můžete předělat knihovnu pro enkryptování, musíte ji ale předělat na všech místech, jsou to: setup, ukládání nastavení a možná ještě někde.
 
-    3. Nastavení proměn programu
+    3. Nastavení proměn programu<br>
         Původně mělo sloužit k nastavení proměn když kód běží - to se hodí pro debugování, ale ještě jsem ji nepřidal.
-        POzději ji přídám, jestli si ji chcete vytvořit sami, klidně můžete, byl bych rád kdybyste mi poslali kód a já bych ji dal do příští verze
+        Později ji přídám, jestli si ji chcete vytvořit sami, klidně můžete, byl bych rád kdybyste mi poslali kód a já bych ji dal do příští verze
 
 2. Vlákna<br>
     1vlákno: spustí funkci na obědnávání, poté časovač <- přičaosvači to zapíše za jak dlouho novy update jidel
@@ -142,7 +142,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
 
 4. Instrukce<br>
     Nějaké info pro implementaci různých prvků
-    1. Pluginy
+    1. Pluginy<br>
         Do budoucna bych chtěl přidat možnost instralování pluginů.
         Každý plugin bude ve složce plugins/<název_pluginu>.
         Bude to jak Python knihovny - bude obsahovat soubor *__init__.py*.
@@ -160,7 +160,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
 
     **Stavba požadavků**
     Každý požadavek má zvláštní přístup, zde je popsán:
-    1. Vytvoříme data požadavku
+    1. Vytvoříme data požadavku<br>
         Data jsou ve slovníku, např.:
         `data = {"cislo": cislo_jidelny, "jmeno":jmeno, "heslo":heslo, "zustatPrihlasen":False, "lang":"CZ"}`
         Tato data převedeme do json formátu pomocí:
@@ -169,32 +169,32 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         `{'Content-Type': 'text/plain'}`
         To je z dat vše.
 
-    2. Nastavování požadavku
+    2. Nastavování požadavku<br>
         Vytvoříme obsah funkce `requests.post()` následovně:
         `'https://app.strava.cz/api/login', data=json_data, headers={'Content-Type': 'text/plain'}`
         Složíme spolu vše co je potřeba a dáme to do funkce, takže nakonec to bude vypadat:
         `requests.post('https://app.strava.cz/api/login', data=json_data, headers={'Content-Type': 'text/plain'})`
         Tím jsme vytvořili požadavek, který se odešle.
 
-    3. Získávání odpovědi
+    3. Získávání odpovědi<br>
         Po odeslání požadavku jej zpracujeme pomocí:
         `odpoved_slovnik = json.loads(odpoved.text)`
         *odpoved* je odpověď z požadavku a pomocí "json" knihovny převedeme stringová data, která jsme přijali do Python slovníku.
         S tím pak dále pracujeme
 
     **Objednávání pořadě**
-    1. Přihlášení
+    1. Přihlášení<br>
         Pomocí řádku `requests.post('https://app.strava.cz/api/login', data=json_data, headers={'Content-Type': 'text/plain'})` odešleme požadavek na přihlášení.
         Jesli jsou údaje špatné (status kód != 200) napíšeme upozornění. (Od verze  0.9)
         Přebereme odpověď a uložíme z ní potřebná data.
 
-    2. Nastavení potřebných věcí
+    2. Nastavení potřebných věcí<br>
         Netuším proč to tam mají, ale je to potřeba.
         Požadavek vypadá jako:
         `requests.post('https://app.strava.cz/api/coder', data=json_data, headers={'Content-Type': 'text/plain'})`
         Ani nezpracováváme odpověď.
 
-    3. Načtení dostupných objedů
+    3. Načtení dostupných objedů<br>
         Načítáme dostupné obědy, ale jako provní složíme požadavek:
         `data = {'cislo': cislo, "sid":sid, "s5url":s5url, "konto":konto, "podminka":podminka, "ignoreCert":ignoreCert, "resetTables":resetTables, "lang":"CZ"}`
         Pak
@@ -204,7 +204,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         Poté objednávky přebereme, najdeme poslední oběd a jeho větu a upravíme podle toho, jestli chcete 1, nebo 2.
         Nakonec nastavíme lo (last order) na název tohoto obědu.
 
-    4. Objednání jídla
+    4. Objednání jídla<br>
         Na server pošleme naši volbu, jako vždy první sestavíme požadavek:
         `odpoved = requests.post('https://app.strava.cz/api/pridejJidloS5', data=json_data, headers={'Content-Type': 'text/plain'})`
         Pak pomocí json knihovny
@@ -213,7 +213,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         `odpoved = requests.post('https://app.strava.cz/api/pridejJidloS5', data=json_data, headers={'Content-Type': 'text/plain'})`
         To je vše, ani odpověď nespracováváme. Na serveru by měla být na volba uložena, jen je potřeba ji potvrďit.
 
-    5. Konečné ukládání
+    5. Konečné ukládání<br>
         Jinak jsem to nazval potvrzovaní v předchozím kroku.
         Tak zase jako vždy:
         `data = {'cislo': cislo, "sid":sid, "url":url, "xml":None, "pocet":1, "ignoreCert":ignoreCert, "lang":"CZ"}`
@@ -222,7 +222,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         A nakonec odešleme
         `odpoved = requests.post('https://app.strava.cz/api/saveOrders', data=json_data, headers={'Content-Type': 'text/plain'})`
 
-    6. Čekání
+    6. Čekání<br>
         Nakonec nám zbývá už jen počkat...
          ~~~ Python
         for i in range(orderUpdateInterval):
