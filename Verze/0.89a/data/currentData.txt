@@ -1,0 +1,6 @@
+problems: lastPRproblems: 
+lastOrder: lastPRlastOrder: Jarní omeleta s tuňákem (počet porcí omezen), raženka
+codeRunning: ne
+threads: 
+allOrders: 
+nextOrderUpdate: 0
