@@ -15,16 +15,25 @@ except ImportError as ie:
 try:
     from cryptography.fernet import Fernet
 except:
+    st = input("Program vyžaduje knihovnu 'cryptography' pro fungování, přejete si stáhnout? (A/n) ")
+    if st.lower() == "a":
+        os.system("pip install cryptography")
+        os.system(f"python res.py gui.py {os.getpid()} restart")
+    
     with open("data/debug.txt", "a", encoding="utf-8") as debugFile:
         debugFile.write(f"\nError6: Could not import cryptography.fernet [{datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S')}]")
 
 try:
     import requests
 except:
+    st = input("Program vyžaduje knihovnu 'requests' pro fungování, přejete si stáhnout? (A/n) ")
+    if st.lower() == "a":
+        os.system("pip install requests")
+        os.system(f"python res.py gui.py {os.getpid()} restart")
+    
     with open("data/debug.txt", "a", encoding="utf-8") as debugFile:
         debugFile.write(f"\nError6: Could not import requests [{datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S')}]")
 
-#TODO: dodělat runCheck
 
 #cislo; A -> Alfa; a -> verze a; + -> nedokončená verze, rozšíření napsané verze, ale nedokončené; může být i třeba: 1.0Ba+
 VERSION = "0.89"
@@ -571,8 +580,6 @@ def changeToPrehled():
                 label5 = tk.Label(root, text=f"Běžící vlákna: {beziciVlakna}")
                 label5.configure(background=bgc)
                 label5.pack()
-
-                label.bind("<Button-1>", restartV1)
 
                 if "e5" in problems:
                     problems.remove("e5")
@@ -1361,8 +1368,6 @@ def changeToRm():
             def t4():
                 global after_loop2, threads
 
-                
-
                 toplevel_vlakno4 = tk.Toplevel()
                 toplevel_vlakno4.title("Vlákno 4")
 
@@ -1394,7 +1399,6 @@ def changeToRm():
 
                 t4Stop_button = tk.Button(toplevel_vlakno4, text="Sputit", command=start)
                 t4Stop_button.pack(pady=5)
-
 
 
             def t5():

@@ -14,7 +14,7 @@ except ImportError as ie:
         os.system("pip install gitpython")
 
 # Začátek
-print("Update client v. 0.88B\n======================\n")
+print("Update client v. 0.89\n======================\n")
 print("Inicializace...")
 url = "https://github.com/CreatorOfBiontium/strava"
 

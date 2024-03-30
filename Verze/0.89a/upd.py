@@ -12,9 +12,11 @@ except ImportError as ie:
         os.system("python gui.py")
     else:
         os.system("pip install gitpython")
+        os.system(f"python res.py upd.py {os.getpid()} restart")
 
 # Začátek
-print("Update client v. 0.88B\n======================\n")
+os.system("cls" if os.name == "nt" else "clear")
+print("Update client v. 0.89a\n======================\n")
 print("Inicializace...")
 url = "https://github.com/CreatorOfBiontium/strava"
 
