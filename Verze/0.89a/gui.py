@@ -195,11 +195,9 @@ def strartCheck():
     
     nslozka = os.path.basename(os.path.dirname(os.getcwd()))
     
-    if nslozka != "strava":
-        os.chdir("..")
-        os.rename(nslozka, f"strava")
-        time.sleep(1)
-        os.chdir("strava")
+    if nslozka == VERSION:
+        print("Doporučujeme, aby název složky se nerovnal jakékoli verzi, protože program se sám aktualizuje")
+        time.sleep(2)
 
     if runCheck:
         problemsRegistred = []
