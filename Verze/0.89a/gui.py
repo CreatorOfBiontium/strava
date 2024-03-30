@@ -129,9 +129,6 @@ def exitPgTop(exitt):
     
     if exitt:
         exit()
-    
-#Start (zapsání do currentdataFile a další)
-#List: problems-lastPRproblems:, ...
 
 def checkLP():
     ok: bool
@@ -1361,9 +1358,7 @@ def changeToRm():
 
             def t4():
                 global after_loop2, threads
-
                 
-
                 toplevel_vlakno4 = tk.Toplevel()
                 toplevel_vlakno4.title("Vlákno 4")
 
@@ -1834,11 +1829,19 @@ def vlakno1():
                     time.sleep(1)
                     waited = waited + 1
                     
-            if not exit_event.is_set():      
+            if not exit_event.is_set():
                 insidewrapper()
                 
+        else:
+            while True:
+                time.sleep(5)
+                if not exit_event.is_set():
+                    insidewrapper()
+                else:
+                    break
+                
 
-    insidewrapper()    
+    insidewrapper()
 
     vlakno1bezi = False
     try:
