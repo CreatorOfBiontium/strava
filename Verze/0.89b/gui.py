@@ -226,10 +226,8 @@ strartCheck()
 if checkForUpdates:
     os.system("python upd.py")
 
-with open("data/verze.txt", "r+", encoding="utf-8") as verze:
-    verzeP = verze.read()
-    if verzeP != VERSION:
-        verze.write(VERSION)
+with open("data/verze.txt", "w", encoding="utf-8") as verze:
+    verze.write(VERSION)
 
 with open(currentDataFile, "w") as currFile:
     currFile.write(f"problems: \nlastOrder: \ncodeRunning: ano\nthreads: 3\nallOrders: \nnextOrderUpdate: 0")
