@@ -1,5 +1,5 @@
 problems: lastPRproblems: 
-lastOrder: lastPRlastOrder: Listový salát se stripsy, louhovaný bagel se sezamem
+lastOrder: lastPRlastOrder: 
 codeRunning: ne
 threads: 
 allOrders: 

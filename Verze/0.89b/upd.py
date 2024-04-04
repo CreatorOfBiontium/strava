@@ -16,7 +16,7 @@ except ImportError as ie:
 
 # Začátek
 os.system("cls" if os.name == "nt" else "clear")
-print("Update client v. 0.89a\n======================\n")
+print("Update client v. 0.89b\n======================\n")
 print("Inicializace...")
 url = "https://github.com/CreatorOfBiontium/strava"
 
