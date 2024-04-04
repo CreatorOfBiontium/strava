@@ -1,0 +1,6 @@
+problems: lastPRproblems: 
+lastOrder: lastPRlastOrder: Listový salát se stripsy, louhovaný bagel se sezamem
+codeRunning: ne
+threads: 
+allOrders: 
+nextOrderUpdate: 0
