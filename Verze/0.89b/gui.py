@@ -223,11 +223,11 @@ def strartCheck():
             
 strartCheck()
 
-if checkForUpdates:
-    os.system("python upd.py")
-
 with open("data/verze.txt", "w", encoding="utf-8") as verze:
     verze.write(VERSION)
+
+if checkForUpdates:
+    os.system("python upd.py")
 
 with open(currentDataFile, "w") as currFile:
     currFile.write(f"problems: \nlastOrder: \ncodeRunning: ano\nthreads: 3\nallOrders: \nnextOrderUpdate: 0")
