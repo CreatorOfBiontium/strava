@@ -1,0 +1,31 @@
+{
+    "all": {
+        "threads": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "debug": false,
+        "bg": "white",
+        "showErrors": true,
+        "showErrorOnDebug": false,
+        "ShutOnClose": false,
+        "settingsFile": "data/settings.json",
+        "currentDataFile": "data/currentData.txt",
+        "checkForUpdates": true,
+        "allowRM": false
+    },
+    "data": {
+        "allOrders": 0,
+        "lastOrder": "",
+        "setup": true,
+        "shutDownProperly": true,
+        "showMode4Alert": true,
+        "runCheck": true,
+        "settingsFile": "data/settings.json",
+        "newVerAv": true,
+        "showReleaseNotes": true
+    }
+}

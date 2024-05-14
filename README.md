@@ -113,7 +113,7 @@ Nechce se mi to moc popisovat zjednodušeně, takže pokud umíte Python, dobře
         V novějších verzích jsem ten řádek odstranil.
         Byl to:
         `label.bind("<Button-1>", restartV1)`
-        Na starších verzích jej také odstraňte jestli se chcete erroru zbavit.
+        Na starších verzích jej také odstraňte jestli se chcete erroru zbavit, ale nemusí to 100% fungovat.
 
     2. Enkryptování hesla<br>
         Heslo enkryptuji pomocí knihovny 'crypthography'.

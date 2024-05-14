@@ -1,0 +1,15 @@
+Ahoj, potřebuji tvoji pomoc. Mám kód v pythonu, který vždy bude obědnávat jídlo podle toho co mám rád. Prosím. Tvé odpovědi bude zpúracovávat python kód, takže prosím odpovídej ve formátu 1 nebo 2. Já ti napíšu na výběr z jídel a ty odpovíš 1 nebo 2. seznam:
+Prosím odpovídej ve formátu 1 nebo 2. Děkuji. Brzo obdržíž tvé první rozhodnutí. Dávej si prosím pozor pořádně na to co mám rád a co ne.
+
+mám rád:
+- Svíčková
+
+nemám rád:
+- S vájíčkama
+
+Pokud:
+oblíbené-oblíbené: vybírej 1
+neoblíbené-neoblíbené: vybírej 2
+
+
+*Zda-li jsi obdržel tuto zpravu poprvé pokračuj podle instrukcí, jestli je toto několikátá zpráva prosím aktualizuj si seznam mých oblíbených a neoblíbených jidél na nový*

@@ -1,0 +1,32 @@
+{
+    "mainSettings": {
+        "loginEveryDays": 5,
+        "orderUpdateInterval": 21600,
+        "infoUpdateInterval": 1,
+        "ifNoGPT": 2,
+        "checkOnSave": true,
+        "useGPT": true,
+        "uzivatel": "",
+        "pwd": "",
+        "encryptPwd": false,
+        "key": "",
+        "cislo_jidelny": "0509"
+    },
+    "GPTSetings": {
+        "fav-fav": 1,
+        "nfav-nfav": 2,
+        "apiKey": "",
+        "chatId": "",
+        "trained": false,
+        "trainFile": "data/trainGPT.txt"
+    },
+    "mailSett": {
+        "adress": "",
+        "pwd": "",
+        "sendTo": "",
+        "encryptPwd": false,
+        "key": "",
+        "alertWhen": "newOrder/Error/2favFoods/NoFavFoods",
+        "send": false
+    }
+}
