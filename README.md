@@ -3,6 +3,9 @@ Objednává na Stravě z nenovějšího objedu oběd 2.
 Kód ještě není v úplně nejlepší formě, ale alespoň dělá to co má.
 Níže pak bude rychle popsané fungování a další potřebné inforamce.
 
+## Důležizé změny
+Projekt migrován na [strava.cobi.world](https://strava.cobi.world). Více info naleznete tam.
+Tenhle projekt je zastaralý - nové verze naleznete na víše zmíněné doméně.
 
 ### Požadavky
 Program potřebuje k běhu splňovat následující podmínky:
