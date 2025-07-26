@@ -5,7 +5,7 @@ Níže pak bude rychle popsané fungování a další potřebné inforamce.
 
 ## Důležizé změny
 Projekt migrován na [strava.cobi.world](https://strava.cobi.world). Více info naleznete tam.
-Tenhle projekt je zastaralý - nové verze naleznete na víše zmíněné doméně.
+Tenhle projekt je zastaralý - nové verze naleznete na výše zmíněné doméně.
 
 ### Požadavky
 Program potřebuje k běhu splňovat následující podmínky:
